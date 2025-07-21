@@ -1,12 +1,9 @@
 import React from 'react'
+import Input from './Components/Input todo/Input'
 
 function App() {
   return (
-    <div>
-      <input type="text" name="" id="" />
-      <button>SUBMIT</button>
-      
-    </div>
+    <Input/>
   )
 }
 export default App
