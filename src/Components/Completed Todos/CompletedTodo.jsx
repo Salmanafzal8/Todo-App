@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { TbNotebookOff } from "react-icons/tb";
 
-
 function CompletedTodo({ todos, onToggle }) {
   const [expandedTodos, setExpandedTodos] = useState([]);
 
@@ -13,10 +12,14 @@ function CompletedTodo({ todos, onToggle }) {
 
   return (
     <div className="w-96 bg-gray-300 p-4 overflow-auto h-110 rounded ">
-      <h2 className="text-lg font-bold bg-black text-white rounded-2xl flex justify-center items-center mb-3">Completed Todos</h2>
-      
+      <h2 className="text-lg font-bold bg-black text-white rounded-2xl flex justify-center items-center mb-3">
+        Completed Todos
+      </h2>
+
       {todos.length <= 0 ? (
-        <p className="flex justify-center bg-blue-100 rounded items-center ">No Completed Todo</p>
+        <p className="flex justify-center bg-blue-100 rounded items-center ">
+          No Completed Todo
+        </p>
       ) : (
         <div className="space-y-4">
           {todos.map((todo) => {
@@ -41,8 +44,8 @@ function CompletedTodo({ todos, onToggle }) {
                       {isExpanded ? "Show Less" : "Read More"}
                     </button>
                   )}
-                </p>
-
+                </p> 
+                
                 <small className="text-gray-500 block mt-1">
                   {todo.createdAt.toLocaleDateString()}
                 </small>
@@ -52,7 +55,7 @@ function CompletedTodo({ todos, onToggle }) {
                     onClick={() => onToggle(todo.id)}
                     className="bg-red-500 hover:bg-red-700 cursor-pointer  text-white p-1 justify-center items-center flex rounded"
                   >
-                    <TbNotebookOff  />
+                    <TbNotebookOff />
                     Incomplete
                   </button>
                 </div>
