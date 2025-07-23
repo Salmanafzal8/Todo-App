@@ -3,16 +3,13 @@ import IncompleteTodos from "../Incomplete Todos/IncompleteTodos";
 import CompletedTodo from "../Completed Todos/CompletedTodo";
 
 function Todos({ todos, onDelete, onToggle, onEdit }) {
-  const Incompleted = () => {
-    todos.filter((t) => !t.completed);
-  };
-  const completed = () => {
-    todos.filter((t) => t.completed);
-  };
+  const incompleted = todos.filter((t) => !t.completed);
+  const completed = todos.filter((t) => t.completed);
+
   return (
     <div className="flex justify-center gap-5">
       <IncompleteTodos
-        todos={Incompleted}
+        todos={incompleted}
         onDelete={onDelete}
         onToggle={onToggle}
         onEdit={onEdit}
