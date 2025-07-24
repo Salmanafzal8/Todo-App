@@ -66,50 +66,91 @@ import CompletedTodo from "./Components/CompletedTodo/CompletedTodo";
 import IncompleteTodos from "./Components/IncompleteTodos/IncompleteTodos";
 import Todo from "./Components/Todos/Todo";
 
-function App() {
-  const [todos, setTodos] = useState([]);
-  const [editId, setEditId] = useState(null);
-  const [text, setText] = useState("");
+// function App() {
+//   const [todos, setTodos] = useState([]);
+//   const [editId, setEditId] = useState(null);
+//   const [text, setText] = useState("");
 
-  const handleAddOrUpdateTodo = (inputText) => {
-    if (editId) {
-      setTodos((prev) =>
-        prev.map((todo) =>
-          todo.id === editId ? { ...todo, text: inputText } : todo
-        )
-      );
-      setEditId(null);
-    } else {
-      const newTodo = {
-        id: Date.now(),
-        text: inputText,
-        completed: false,
-        createdAt: new Date(),
-      };
-      setTodos((prev) => [newTodo, ...prev]);
-    }
-    setText("");
-  };
+//   const handleAddOrUpdateTodo = (inputText) => {
+//     if (editId) {
+//       setTodos((prev) =>
+//         prev.map((todo) =>
+//           todo.id === editId ? { ...todo, text: inputText } : todo
+//         )
+//       );
+//       setEditId(null);
+//     } else {
+//       const newTodo = {
+//         id: Date.now(),
+//         text: inputText,
+//         completed: false,
+//         createdAt: new Date(),
+//       };
+//       setTodos((prev) => [newTodo, ...prev]);
+//     }
+//     setText("");
+//   };
 
-  const handleToggle = (id) => {
-    if (editId) return;
-    setTodos((prev) =>
-      prev.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+//   const handleToggle = (id) => {
+//     if (editId) return;
+//     setTodos((prev) =>
+//       prev.map((todo) =>
+//         todo.id === id ? { ...todo, completed: !todo.completed } : todo
+//       )
+//     );
+//   };
+
+//   const handleDelete = (id) => {
+//     if (editId) return;
+//     setTodos((prev) => prev.filter((todo) => todo.id !== id));
+//   };
+
+//   const handleEdit = (id) => {
+//     const target = todos.find((todo) => todo.id === id);
+//     setEditId(id);
+//     setText(target.text);
+//   };
+   function App() {
+     const [todos, setTodos ] = useState([])
+     const [editId,setEditId]= useState(null)
+     const [text ,setText] = useState("")
+
+     const handleAddOrUpdateTodo =(inputText) =>{
+      if(editId){
+        setTodos((prev)=> prev.map((todo)=>todo.id === editId ? {...todo, text:inputText}:todo
       )
-    );
-  };
+      )
+      setEditId(null)
+      }else {
+        const newTodo = {
+          id:Date.now(),
+          text:inputText,
+          completed:false,
+          createdAt:new Date(),
+        }
+        setTodos((prev)=>[newTodo,...prev])
+      }
+      setText("")
+     }
 
-  const handleDelete = (id) => {
-    if (editId) return;
-    setTodos((prev) => prev.filter((todo) => todo.id !== id));
-  };
+     const handleToggle =(id) =>{
+      if(editId)return
+      setTodos ((prev)=>
+      prev.map((todo)=>
+         todo.id === id ? {...todo , completed: !todo.completed}: todo)
+      ) 
+    }
 
-  const handleEdit = (id) => {
-    const target = todos.find((todo) => todo.id === id);
-    setEditId(id);
-    setText(target.text);
-  };
+    const handleDelete  = (id) =>{
+      if(editId)return
+      setTodos((prev)=>prev.filter((todo)=> todo.id !== id))
+    }
+
+    const handleEdit = (id) =>{
+   const target = todos.find((todo)=> todo.id === id )
+    setEditId(id)
+    setText(target.text)
+    }
 
   return (
     <div className=" p-4 pt-9 space-y-6">

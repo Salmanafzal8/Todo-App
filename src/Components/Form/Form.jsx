@@ -49,6 +49,8 @@
 
 import React from "react";
 import { MdOutlineAddTask } from "react-icons/md";
+import { MdMovieEdit } from "react-icons/md";
+
 
 function Form({ onAdd, text, setText, isEdit }) {
   const handleInputChange = (e) => {
@@ -69,23 +71,23 @@ function Form({ onAdd, text, setText, isEdit }) {
         value={text}
         onChange={handleInputChange}
         placeholder="Enter a todo"
-        className="border rounded px-3 py-2 w-80"
+        className="border rounded px-3 py-2 w-100"
       />
       <button
         onClick={handleSubmit}
         disabled={isDisabled}
         className={`flex justify-center items-center gap-2 px-4 py-2 rounded text-white 
-          ${isDisabled
-            ? "bg-gray-400 cursor-not-allowed"
-            : "bg-blue-600 hover:bg-blue-800 cursor-pointer"
+          ${
+            isDisabled
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-800 cursor-pointer"
           }`}
       >
-        <MdOutlineAddTask />
-        {isEdit ? "Edit Todo" : "Add Todo"}
+        {isEdit ? <MdOutlineAddTask /> : <MdMovieEdit />}
+        {isEdit ? " Edit Todo" : "Add Todo"}
       </button>
     </div>
   );
 }
 
 export default Form;
-
